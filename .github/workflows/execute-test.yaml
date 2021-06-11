@@ -1,21 +1,23 @@
-name:teste
+  name: Execute tests
 
-on:
-  push:
-    branches:[master]
-  pull_request:
-    branches:[master]
+  on:
+    push:
+      branches: [ master ]
+    pull_request:
+      branches: [ master ]
 
-jobs:
-  build:
+  jobs:
+    execute-tests:
+      runs-on: ubuntu-latest
 
-    runs-on: ubuntu-latest
-    steps:
-    - uses: action/checkout@v2
-    - name: Set up JDK 1.8
-      uses: action/setup-java@v1
-      with:
-        java-version: 1.8
-    -name: Build with Maven
-        run: mvn package
+      steps:
+        - name: Checkout repository
+          uses: actions/checkout@v2
+
+        - name: Run maven commands
+          uses: actions/setup-java@v1
+          with:
+            java-version: 1.8
+        -name: Build with maven      
+          run: mvn package
 
