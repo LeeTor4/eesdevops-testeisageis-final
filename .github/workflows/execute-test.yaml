@@ -17,5 +17,5 @@
         - name: Run maven commands
           uses: GuillaumeFalourd/maven-cli-jdks-action@main
           with:
-            commands: 'mvn verify'
+            commands: 'mvn package'
 
